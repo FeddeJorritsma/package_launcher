@@ -3,7 +3,7 @@
 <package format="3">
   <name>package_launcher</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Package to launch nodes from different packages</description>
   <maintainer email="feddejorritsma@proton.me">feddepc</maintainer>
   <license>Apache-2.0</license>
 
