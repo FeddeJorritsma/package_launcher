@@ -1,4 +1,21 @@
 <launch>
   <!-- launches diffdrive controller -->
   <include file="$(find-pkg-share diffdrive_arduino)/launch/diffbot.launch.py" />
+  
+  <node pkg="sllidar_ros2" exec="sllidar_node" name="LiDAR" namespace="LiDAR">
+    <param name="channel_type" value="serial" />
+    <param name="serial_port" value="/dev/ttyUSB1" />
+    <param name="serial_baudrate" value="460800" />
+    <param name="frame_id" value="laser_frame" />
+    <param name="inverted" value="true" />
+    <param name="angle_compensate" value="true" />
+    <param name="scan_mode" value="Standard" />
+  </node>
+  <node pkg="usb_cam" exec="usb_cam_node_exe" name="Cam1" namespace="Cam1">
+    <param name="video_device" value="/dev/video1" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="framerate" value="15.0" />
+    <param name="pixel_format" value="mjpeg2rgb" />
+  </node>
 </launch>
